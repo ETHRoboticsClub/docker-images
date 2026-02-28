@@ -11,7 +11,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     htop \
     curl \
     wget \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir lerobot
 
 RUN useradd -m -s /bin/bash -u 1000 researcher
 USER researcher
