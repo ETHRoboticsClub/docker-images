@@ -24,6 +24,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libavfilter-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -s /bin/bash -u 1000 researcher
+RUN useradd -m -s /bin/bash researcher
 USER researcher
 WORKDIR /home/researcher
