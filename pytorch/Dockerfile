@@ -24,8 +24,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libavfilter-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN /opt/conda/bin/pip install --no-cache-dir lerobot
-
 RUN useradd -m -s /bin/bash -u 1000 researcher
 USER researcher
 WORKDIR /home/researcher
