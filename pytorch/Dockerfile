@@ -4,26 +4,9 @@ LABEL org.opencontainers.image.source="https://github.com/ETHRoboticsClub/docker
 LABEL org.opencontainers.image.description="PyTorch base image for RL Robotics Team"
 LABEL maintainer="ETHRoboticsClub"
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    tmux \
-    vim \
-    htop \
-    curl \
-    wget \
-    ffmpeg \
-    cmake \
-    build-essential \
-    pkg-config \
-    libavformat-dev \
-    libavcodec-dev \
-    libavdevice-dev \
-    libavutil-dev \
-    libswscale-dev \
-    libswresample-dev \
-    libavfilter-dev \
-    && rm -rf /var/lib/apt/lists/*
+COPY install-shared.sh /tmp/install-shared.sh
+RUN chmod +x /tmp/install-shared.sh && /tmp/install-shared.sh && rm /tmp/install-shared.sh
 
-RUN useradd -m -s /bin/bash researcher
-USER researcher
-WORKDIR /home/researcher
+RUN useradd -m -s /bin/bash runner
+USER runner
+WORKDIR /home/runner
