@@ -20,6 +20,7 @@ apt-get update && apt-get install -y --no-install-recommends \
     libswresample-dev \
     libavfilter-dev \
     unzip \
+    sudo \
     && rm -rf /var/lib/apt/lists/*
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"

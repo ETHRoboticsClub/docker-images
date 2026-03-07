@@ -8,5 +8,6 @@ COPY install-shared.sh /tmp/install-shared.sh
 RUN chmod +x /tmp/install-shared.sh && /tmp/install-shared.sh && rm /tmp/install-shared.sh
 
 RUN useradd -m -s /bin/bash runner
+RUN echo "runner ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER runner
 WORKDIR /home/runner
