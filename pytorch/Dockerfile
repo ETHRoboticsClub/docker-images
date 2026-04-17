@@ -6,3 +6,7 @@ LABEL maintainer="ETHRoboticsClub"
 
 COPY install-shared.sh /tmp/install-shared.sh
 RUN chmod +x /tmp/install-shared.sh && /tmp/install-shared.sh && rm /tmp/install-shared.sh
+
+RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+USER ubuntu
+WORKDIR /home/ubuntu
